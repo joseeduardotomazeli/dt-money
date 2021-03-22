@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 
 import { Container } from './styles';
 
+import api from '../../services/api';
+
 function TransactionsTable() {
   useEffect(() => {
     async function getTransactions() {
-      const response = await fetch('http://localhost:3000/api/transactions');
-      const data = await response.json();
-
-      console.log(data);
+      const response = await api.get('transactions');
+      console.log(response.data);
     }
 
     getTransactions();
