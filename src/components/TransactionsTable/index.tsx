@@ -1,29 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 
 import { Container } from './styles';
 
-import api from '../../services/api';
-
-interface Transaction {
-  id: number;
-  title: string;
-  value: number;
-  type: string;
-  category: string;
-  createdAt: string;
-}
+import { TransactionsContext } from '../../TransactionsContext';
 
 function TransactionsTable() {
-  const [transactions, setTransactions] = useState<Transaction[]>([]);
-
-  useEffect(() => {
-    async function getTransactions() {
-      const response = await api.get('transactions');
-      setTransactions(response.data.transactions);
-    }
-
-    getTransactions();
-  }, []);
+  const { transactions } = useContext(TransactionsContext);
 
   function formatValuePtBR(value: number) {
     return new Intl.NumberFormat('pt-BR', {
