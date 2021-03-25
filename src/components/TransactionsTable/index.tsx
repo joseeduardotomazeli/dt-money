@@ -2,19 +2,10 @@ import { Container } from './styles';
 
 import useTransactions from '../../hooks/useTransactions';
 
+import { formatCurrencyPtBR, formatDatePtBR } from '../../utils/format';
+
 function TransactionsTable() {
   const { transactions } = useTransactions();
-
-  function formatValuePtBR(value: number) {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(value);
-  }
-
-  function formatDatePtBR(date: string) {
-    return new Intl.DateTimeFormat('pt-BR').format(new Date(date));
-  }
 
   return (
     <Container>
@@ -34,7 +25,7 @@ function TransactionsTable() {
               <td>{transaction.title}</td>
               <td className={transaction.type}>
                 {transaction.type === 'withdraw' ? '- ' : ''}
-                {formatValuePtBR(transaction.value)}
+                {formatCurrencyPtBR(transaction.value)}
               </td>
               <td>{transaction.category}</td>
               <td>{formatDatePtBR(transaction.createdAt)}</td>

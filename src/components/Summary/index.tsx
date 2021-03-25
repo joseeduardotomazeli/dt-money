@@ -2,6 +2,8 @@ import { Container } from './styles';
 
 import useTransactions from '../../hooks/useTransactions';
 
+import { formatCurrencyPtBR } from '../../utils/format';
+
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
 import total from '../../assets/total.svg';
@@ -24,13 +26,6 @@ function Summary() {
     { deposits: 0, withdraws: 0, total: 0 }
   );
 
-  function formatValuePtBR(value: number) {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL',
-    }).format(value);
-  }
-
   return (
     <Container>
       <div>
@@ -39,7 +34,7 @@ function Summary() {
           <img src={income} alt="Entradas" />
         </header>
 
-        <strong>{formatValuePtBR(summary.deposits)}</strong>
+        <strong>{formatCurrencyPtBR(summary.deposits)}</strong>
       </div>
 
       <div>
@@ -48,7 +43,7 @@ function Summary() {
           <img src={outcome} alt="Saídas" />
         </header>
 
-        <strong>- {formatValuePtBR(summary.withdraws)}</strong>
+        <strong>- {formatCurrencyPtBR(summary.withdraws)}</strong>
       </div>
 
       <div className="highlight-background">
@@ -57,7 +52,7 @@ function Summary() {
           <img src={total} alt="Total" />
         </header>
 
-        <strong>{formatValuePtBR(summary.total)}</strong>
+        <strong>{formatCurrencyPtBR(summary.total)}</strong>
       </div>
     </Container>
   );
