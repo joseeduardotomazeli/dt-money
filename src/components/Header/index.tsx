@@ -13,6 +13,7 @@ function Header(props: HeaderProps) {
     <Container>
       <Content>
         <img src={logo} alt="dt money" />
+
         <button type="button" onClick={onOpenNewTransactionModal}>
           Nova transação
         </button>
