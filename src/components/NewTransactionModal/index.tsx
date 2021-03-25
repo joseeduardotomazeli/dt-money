@@ -104,7 +104,7 @@ function NewTransactionModal(props: NewTransactionModalProps) {
           </TransactionTypeContainer>
 
           <input
-            type="number"
+            type="text"
             placeholder="Categoria"
             value={category}
             onChange={(event) => setCategory(event.target.value)}
