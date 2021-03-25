@@ -13,12 +13,16 @@ function Summary() {
 
   const summary = transactions.reduce(
     (acc, transaction) => {
-      if (transaction.type === 'deposit') {
-        acc.deposits += transaction.value;
-        acc.total += transaction.value;
-      } else if (transaction.type === 'withdraw') {
-        acc.withdraws += transaction.value;
-        acc.total -= transaction.value;
+      switch (transaction.type) {
+        case 'deposit':
+          acc.deposits += transaction.value;
+          acc.total += transaction.value;
+          break;
+
+        case 'withdraw':
+          acc.withdraws += transaction.value;
+          acc.total -= transaction.value;
+          break;
       }
 
       return acc;
