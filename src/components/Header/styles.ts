@@ -22,8 +22,8 @@ export const Content = styled.div`
     border: 0;
     border-radius: 0.25rem;
     background-color: var(--blue-light);
-    font-size: 1rem;
     color: #fff;
+    font-size: 1rem;
     transition: filter 0.2s;
 
     :hover {

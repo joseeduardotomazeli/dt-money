@@ -15,8 +15,8 @@ export const Container = styled.div`
   h2 {
     margin-bottom: 2rem;
 
-    font-size: 1.5rem;
     color: var(--text-title);
+    font-size: 1.5rem;
   }
 
   input {
@@ -31,12 +31,12 @@ export const Container = styled.div`
     font-size: 1rem;
     font-weight: 400;
 
-    &::placeholder {
-      color: var(--text-body);
-    }
-
     & + input {
       margin-top: 1rem;
+    }
+
+    &::placeholder {
+      color: var(--text-body);
     }
   }
 
@@ -50,8 +50,8 @@ export const Container = styled.div`
     border: 0;
     border-radius: 0.25rem;
     background-color: var(--green);
-    font-weight: 600;
     color: #fff;
+    font-weight: 600;
     transition: filter 0.2s;
 
     &:hover {
@@ -83,10 +83,6 @@ export const TransactionType = styled.button<TransactionTypeProps>`
       : 'transparent'};
   transition: border-color 0.2s;
 
-  &:hover {
-    border-color: ${darken(0.1, '#d7d7d7')};
-  }
-
   img {
     width: 28px;
     height: 28px;
@@ -97,7 +93,11 @@ export const TransactionType = styled.button<TransactionTypeProps>`
 
     margin-left: 1rem;
 
-    font-size: 1rem;
     color: var(--text-title);
+    font-size: 1rem;
+  }
+
+  &:hover {
+    border-color: ${darken(0.1, '#d7d7d7')};
   }
 `;
