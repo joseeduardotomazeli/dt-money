@@ -2,7 +2,7 @@ import { Container } from './styles';
 
 import useTransactions from '../../hooks/useTransactions';
 
-import { formatCurrencyPtBR } from '../../utils/format';
+import formatCurrency from '../../utils/formatCurrency';
 
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
@@ -38,7 +38,7 @@ function Summary() {
           <img src={income} alt="Entradas" />
         </header>
 
-        <strong>{formatCurrencyPtBR(summary.deposits)}</strong>
+        <strong>{formatCurrency(summary.deposits)}</strong>
       </div>
 
       <div>
@@ -47,7 +47,7 @@ function Summary() {
           <img src={outcome} alt="Saídas" />
         </header>
 
-        <strong>- {formatCurrencyPtBR(summary.withdraws)}</strong>
+        <strong>- {formatCurrency(summary.withdraws)}</strong>
       </div>
 
       <div className="highlight-background">
@@ -56,7 +56,7 @@ function Summary() {
           <img src={total} alt="Total" />
         </header>
 
-        <strong>{formatCurrencyPtBR(summary.total)}</strong>
+        <strong>{formatCurrency(summary.total)}</strong>
       </div>
     </Container>
   );

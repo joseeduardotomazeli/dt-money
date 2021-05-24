@@ -2,7 +2,8 @@ import { Container } from './styles';
 
 import useTransactions from '../../hooks/useTransactions';
 
-import { formatCurrencyPtBR, formatDatePtBR } from '../../utils/format';
+import formatCurrency from '../../utils/formatCurrency';
+import formatDate from '../../utils/formatDate';
 
 function TransactionsTable() {
   const { transactions } = useTransactions();
@@ -23,12 +24,14 @@ function TransactionsTable() {
           {transactions.map((transaction) => (
             <tr key={transaction.id}>
               <td>{transaction.title}</td>
+
               <td className={transaction.type}>
                 {transaction.type === 'withdraw' ? '- ' : ''}
-                {formatCurrencyPtBR(transaction.value)}
+                {formatCurrency(transaction.value)}
               </td>
+
               <td>{transaction.category}</td>
-              <td>{formatDatePtBR(transaction.createdAt)}</td>
+              <td>{formatDate(transaction.createdAt)}</td>
             </tr>
           ))}
         </tbody>
